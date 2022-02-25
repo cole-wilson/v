@@ -1,3 +1,8 @@
+f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+
+---
+
+
 k up
 j down
 h left
@@ -9,7 +14,8 @@ g,g M-up
 shift+g M-down
 shift+4 M-left
 0 M-rght
-o #(M-rght ret)
+o (around (layer-switch insert) #(M-rght ret))
+ret #(M-left down)
 spc rght
 
 fn C-c

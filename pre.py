@@ -6,10 +6,10 @@ WIDTH = 5
 WIDTHS = {"spc": 5}
 setup = open('setup.kbd').read()
 userbase = open('base.txt').read()
-
+acount = 0
 base = [i.split() for i in userbase.split("\n")]
 
-def layer_to_str(name, layer, default="XX"):
+def layer_to_str(name, layer, transparent):
 	o = f"(deflayer {name}\n"
 	for row in base:
 		o += "\t"
@@ -19,7 +19,7 @@ def layer_to_str(name, layer, default="XX"):
 			if basechar == "spc":
 				w *= 5
 				func = str.center
-			char = default
+			char = "_" if basechar in transparent else "XX"
 			if basechar in layer:
 				char = layer[basechar]
 			o += func(char, w)
@@ -28,8 +28,11 @@ def layer_to_str(name, layer, default="XX"):
 	print(o)
 
 def parsemapping(layername, mapping):
+    global acount
     layers = defaultdict(dict)
     aliases = {}
+    top, mapping = mapping.split("\n---\n", 1)
+    transparent = set(map(str.strip, top.split()))
 
     for line in mapping.split('\n'):
         if " " not in line: continue
@@ -46,12 +49,13 @@ def parsemapping(layername, mapping):
                 button = f"(layer-toggle {layername + lastkey + '_' + item})"
             if count + 1 == len(splits):
                 button = value
-            alias = "" + str(len(aliases.keys()))
+            alias = "" + str(acount)
+            acount += 1
             layers[layername + lastkey][item] = "@" + alias
             aliases[alias] = button
             lastkey += "_" + item
     for k, v in layers.items():
-        layer_to_str(k, v)
+        layer_to_str(k, v, transparent)
     for k, v in aliases.items():
         print(f"(defalias {k} {v})")
 
