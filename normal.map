@@ -1,0 +1,15 @@
+k up
+j down
+h left
+l rght
+w #(A-rght rght)
+e A-rght
+b A-left
+g,g M-up
+shift+g M-down
+shift+4 M-left
+0 M-rght
+o #(M-rght ret)
+spc rght
+
+fn C-c
