@@ -11,3 +11,6 @@
   fallthrough true
   allow-cmd true
 )
+(defalias insert
+	(cmd-button "print a")
+)

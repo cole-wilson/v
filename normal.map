@@ -14,7 +14,7 @@ g,g M-up
 shift+g M-down
 shift+4 M-left
 0 M-rght
-o (around (layer-switch insert) #(M-rght ret))
+o #(@insert M-rght ret)
 ret #(M-left down)
 spc rght
 
