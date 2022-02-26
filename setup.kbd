@@ -11,6 +11,5 @@
   fallthrough true
   allow-cmd true
 )
-(defalias insert
-	(cmd-button "print a")
-)
+(defalias insert (cmd-button "echo --insert--"))
+(defalias insert-next (cmd-button "echo --insert--"))

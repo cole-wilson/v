@@ -2,19 +2,57 @@ f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
 
 ---
 
+			a #(rght @insert)
+shift-a #(M-rght @insert)
+			b A-left
+shift-b A-left
+			c,c #(M-left S-M-rght @insert)
+			c,shift-4 #(S-M-rght @insert)
+			c,i,w #(A-left S-A-rght @insert)
+			c,w #(S-A-rght @insert)
+			c,e #(S-A-rght @insert)
+shift-c #(S-M-rght @insert)
+			d,d #(M-left S-M-rght M-x)
+			d,w #(S-A-rght S-rght M-x)
+			d,i,w #(A-left S-A-rght M-x)
+			d,a,w #(A-left S-A-rght S-rght M-x)
+			d,shift+4 #(S-M-rght M-x)
+shift-d #(S-M-rght M-x)
+			e A-rght
+shift-e A-rght
+			f XX
+shift-f XX
+			g,\_ #(M-rght A-left A-rght)
+			g,comma XX
+			g,; XX
+			g,g M-up
+			g,d XX
+			g,shift-d XX
+shift-g M-down
+			h left
+shift-h M-up
+			i @insert
+shift-i #(M-left @insert)
+			j down
+			k up
+			l rght
+shift-l M-down
+			m,a XX
+shift-m XX
+			n M-g
+shift-n S-M-g
+			o #(M-rght @insert ret)
+shift-o #(up M-rght @insert ret)
+			p #(rght M-p)
+shift-p #(rght M-p)
+			q (cmd-button "echo record")
+			r #(S-rght @insert-next)
+shift-r #(ins @insert)
+			s #(del @insert)
+shift-s #(M-left S-M-rght @insert)
+ ctrl-r M-S-z
 
-k up
-j down
-h left
-l rght
-w #(A-rght rght)
-e A-rght
-b A-left
-g,g M-up
-shift+g M-down
-shift+4 M-left
 0 M-rght
-o #(@insert M-rght ret)
 ret #(M-left down)
 spc rght
 

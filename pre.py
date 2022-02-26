@@ -37,15 +37,16 @@ def parsemapping(layername, mapping):
     for line in mapping.split('\n'):
         if " " not in line: continue
         combokey, value = line.split(" ", 1)
-        combokey = combokey.lower().replace("cmd", "lmet").replace("shift", "lsft")
+        combokey = combokey.strip().lower().replace("cmd", "lmet").replace("shift", "lsft").replace("ctrl", "lctl")
         lastkey = ""
         delim = "+"
         splits = re.split(r"([\+\,\-])", combokey)
         for count, item in enumerate(splits):
             if item in "+,-": continue
             delim = splits[count + 1] if count + 1 < len(splits) else ""
-            button = f"(layer-next {layername + lastkey + '_' + item})"
+            button = f'(around (layer-next {layername + lastkey + "_" + item}) (cmd-button "echo {lastkey.replace("_","")+item}"))'
             if delim in "+-":
+							# (tap-hold delay tap hold)
                 button = f"(layer-toggle {layername + lastkey + '_' + item})"
             if count + 1 == len(splits):
                 button = value
